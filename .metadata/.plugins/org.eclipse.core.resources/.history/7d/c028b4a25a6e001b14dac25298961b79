@@ -1,0 +1,48 @@
+package br.com.javaoito;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+import br.com.javaoito.list.WorkingWithList;
+import br.com.javaoito.list.vo.Person;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		WorkingWithList list = new WorkingWithList();
+		
+		
+		List<Person> listPerson = list.readFile();
+		
+		//System.out.println(listPerson);
+		
+		List<Person> listPersonFilter = listPerson
+		.stream()
+		.filter(p -> p.getIdade() <= 16)
+		.collect(Collectors.toList());
+		
+		//listPersonFilter.stream().forEach(pf -> System.out.println(pf.getNome()));
+		
+		listPerson.stream().map(Person::getIdade)
+			.filter(p -> p == 24)
+			.collect(Collectors.toList())
+			.forEach(p -> System.out.println(p));;
+		
+		
+	}
+	
+	private List<Integer> getListAges (List<Person> listPerson) {
+		
+		List<Integer> ages = listPerson.map(Person::getIdade)
+				.filter(p -> p == 24)
+				.collect(Collectors.toList());
+		
+		
+		
+		return ages
+	}
+
+}

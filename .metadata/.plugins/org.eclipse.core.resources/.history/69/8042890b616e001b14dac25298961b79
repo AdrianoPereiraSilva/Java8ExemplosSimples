@@ -1,0 +1,104 @@
+package br.com.javaoito;
+
+import java.io.IOException;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.swing.SortOrder;
+
+import br.com.javaoito.list.WorkingWithList;
+import br.com.javaoito.list.vo.Person;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		
+		WorkingWithList list = new WorkingWithList();
+		
+		
+		List<Person> listPersonRead = list.readFile();
+		
+		//System.out.println(listPerson);
+		
+		List<Person> listPersonFilter = listPersonRead
+		.stream()
+		.filter(p -> p.getAge() <= 16)
+		.collect(Collectors.toList());
+		
+		//listPersonFilter.stream().forEach(pf -> System.out.println(pf.getNome()));
+		
+		/*listPerson.stream().map(Person::getIdade)
+			.filter(p -> p == 24)
+			.collect(Collectors.toList())
+			.forEach(p -> System.out.println(p));*/
+		
+		// Creates a new list of a single attribute from another complete list
+		List<Integer> agesList = getAgesList(listPersonRead);
+		// System.out.println(agesList);
+		
+		// creates new list of people over eighteen
+		List<Person> listPerson = getListPersonOlderThanEighteen(listPersonRead);
+		
+		// creates new list of people name starts with letter A
+		List<Person> listPersonWithNameLetterA = getListPersonNameStartsWithLetterA(listPersonRead);
+		
+		// creates new list of person sorted by Descending name 
+		List<Person> listPersonSortedByDescendingName = getListPersonSortedByNameDesc(listPersonRead);
+		
+		// creates new list of person sorted by Ascending name 
+		List<Person> listPersonSortedByAscendingName = getListPersonSortedByNameAsc(listPersonRead);
+		
+		listPersonSortedByDescendingName.stream().forEach(p -> p.toString());;
+		
+		listPersonSortedByAscendingName.toString();
+	}
+	
+	/**
+	 * @param listPerson: List Person Object
+	 * @return ages: Integer List 
+	**/
+	private static List<Integer> getAgesList(List<Person> listPerson) {
+		return listPerson.stream().map(Person::getAge).collect(Collectors.toList());
+	}
+	
+	/**
+	 * @param listPerson: List Person Object
+	 * @return listPerson: List Person Object
+	**/
+	private static List<Person> getListPersonOlderThanEighteen(List<Person> listPerson) {
+		return listPerson.stream()
+				.filter(person -> person.getAge() > 18)
+				.collect(Collectors.toList());
+	}
+	
+	/**
+	 * @param listPerson: List Person Object
+	 * @return listPerson: List Person Object
+	**/
+	private static List<Person> getListPersonNameStartsWithLetterA(List<Person> listPerson) {
+		return listPerson.stream()
+				.filter(person -> person.getName().startsWith("A"))
+				.collect(Collectors.toList());
+	}
+	
+	/**
+	 * @param listPerson: List Person Object
+	 * @return listPerson: List Person Object
+	**/
+	private static List<Person> getListPersonSortedByNameDesc(List<Person> listPerson) {
+		return listPerson.stream()
+				.sorted(Comparator.comparing(Person::getName).reversed())
+				.collect(Collectors.toList());
+	}
+	
+	/**
+	 * @param listPerson: List Person Object
+	 * @return listPerson: List Person Object
+	**/
+	private static List<Person> getListPersonSortedByNameAsc(List<Person> listPerson) {
+		return listPerson.stream()
+				.sorted(Comparator.comparing(Person::getName))
+				.collect(Collectors.toList());
+	}
+}

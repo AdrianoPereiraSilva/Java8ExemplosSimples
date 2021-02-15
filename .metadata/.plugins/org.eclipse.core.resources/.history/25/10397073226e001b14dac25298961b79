@@ -1,0 +1,16 @@
+package br.com.javaoito;
+
+import java.io.IOException;
+
+import br.com.javaoito.list.WorkingWithList;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		WorkingWithList list = new WorkingWithList();
+		
+		
+		list.readFile().stream().filter(arg0);
+	}
+
+}

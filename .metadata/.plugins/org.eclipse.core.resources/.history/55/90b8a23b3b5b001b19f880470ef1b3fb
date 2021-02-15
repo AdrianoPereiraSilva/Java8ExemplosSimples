@@ -1,0 +1,7 @@
+package br.com.javaoito;
+
+interface FunctionalInterface {
+	String greet(String s1, String s2);
+	void sort(String c);
+
+}

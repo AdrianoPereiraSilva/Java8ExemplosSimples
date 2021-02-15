@@ -1,0 +1,26 @@
+package br.com.javaoito;
+
+import java.io.IOException;
+import java.util.List;
+
+import br.com.javaoito.list.WorkingWithList;
+import br.com.javaoito.list.vo.Person;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		WorkingWithList list = new WorkingWithList();
+		
+		
+		List<Person> listPerson = list.readFile();
+		
+		System.out.println(listPerson);
+		
+		listPerson
+		.stream()
+		.filter(p -> p.getIdade() <= 16)
+		.forEach(p -> System.out.println(p.getIdade + "-" + p.getNome()));
+		
+	}
+
+}

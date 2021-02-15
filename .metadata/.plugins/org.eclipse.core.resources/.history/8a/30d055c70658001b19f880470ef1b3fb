@@ -1,0 +1,13 @@
+package br.com.javaoito;
+
+public class Blog {
+
+	public static void main(String[] args) {
+		System.out.println();
+	}
+	
+}
+
+interface public FunctionalInterface () {
+	
+}

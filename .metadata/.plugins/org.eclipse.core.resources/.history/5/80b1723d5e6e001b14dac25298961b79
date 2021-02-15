@@ -1,0 +1,11 @@
+package br.com.javaoito.list.vo;
+
+public class Person {
+	
+	private String nme;
+	private int age;
+	private String email;
+	
+	public Person() {}
+
+}

@@ -1,0 +1,6 @@
+package br.com.javaoito;
+
+interface FunctionalInterface {
+	public String greet(String s1, String s2);
+	public String greet2(String s1, String s2);
+}

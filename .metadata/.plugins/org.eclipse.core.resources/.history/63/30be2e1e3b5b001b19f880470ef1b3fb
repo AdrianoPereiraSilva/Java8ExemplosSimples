@@ -1,0 +1,13 @@
+package br.com.javaoito;
+
+import java.util.Collections;
+import java.util.Comparator;
+
+interface FunctionalInterface {
+	public abstract String greet(String s1, String s2);
+	
+	default void sort(Comparator<? super E> c) {
+        Collections.sort(this, c);
+	}
+
+}

@@ -1,0 +1,24 @@
+package br.com.javaoito;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Blog {
+
+	public static void main(String[] args) {
+		
+		FunctionalInterface f1 = (str1, str2) -> str1 + str2;
+		
+		List<String> palavras = Arrays.asList("rodrigo", "paulo", "caelum");
+		
+		Comparator<String> comparador = new Comparator<>() {
+		    public int compare(String s1, String s2) {
+		        return Integer.compare(s1.length(), s2.length());
+		    }
+		
+		
+		
+
+	}
+	
+}

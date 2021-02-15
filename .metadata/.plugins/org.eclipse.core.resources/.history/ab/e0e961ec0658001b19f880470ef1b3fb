@@ -1,0 +1,13 @@
+package br.com.javaoito;
+
+public class Blog {
+
+	public static void main(String[] args) {
+		
+		FunctionalInterface greeting = () -> {
+			return "Hello";
+		}
+		System.out.println(greeting.greet());
+	}
+	
+}

@@ -1,0 +1,12 @@
+package br.com.javaoito;
+
+public class Blog {
+
+	public static void main(String[] args) {
+		
+		FunctionalInterface f1 = (number) -> number + 5;
+		
+		System.out.println(f1.add(9));
+	}
+	
+}

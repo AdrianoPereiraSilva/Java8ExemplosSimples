@@ -1,0 +1,17 @@
+package br.com.javaoito.list;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class WorkingWithList {
+	
+	public String readFile() throws IOException {
+		
+		Files.lines(Paths.get(""))
+			.forEach(System.out::println);;
+		
+		return "";
+	}
+
+}

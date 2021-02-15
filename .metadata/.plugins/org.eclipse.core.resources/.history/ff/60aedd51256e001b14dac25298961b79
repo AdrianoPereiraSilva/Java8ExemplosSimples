@@ -1,0 +1,26 @@
+package br.com.javaoito;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Stream;
+
+import br.com.javaoito.list.WorkingWithList;
+import br.com.javaoito.list.vo.Person;
+
+public class Main {
+	
+	public static void main(String[] args) throws IOException {
+		WorkingWithList list = new WorkingWithList();
+		
+		
+		List<Person> listPerson = list.readFile();
+		
+		System.out.println(listPerson);
+		
+		Stream<Person> stream = listPerson
+				.stream().distinct();
+		
+		System.out.println(stream);
+	}
+
+}
